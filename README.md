@@ -1,18 +1,45 @@
-<p align="center"><img src="https://raw.githubusercontent.com/offalynne/input/main/LOGO.png" style="display:block; margin:auto; width:300px"></p>
+# Text Input Plug-in
 
-<h1 align="center">Input 10.0.8</h1>
+Cross platform player text entry for [Input for GameMaker 2024.8](https://github.com/offalynne/Input)
 
-<p align="center">Comprehensive cross-platform input for GameMaker 2024.8 by <a href="https://www.jujuadams.com/" target="_blank">Juju Adams</a>, <a href="https://offalynne.neocities.org/">Alynne Keith</a>, and <a href="https://offalynne.github.io/Input/#/10.0/Credits">Friends</a></p>
+### Supported Platforms
 
-&nbsp;
+- Desktop native (Windows, MacOS, Linux)
+- Mobile (Android, iOS, iPadOS, tvOS)
+- Console (Xbox, PlayStation, Switch)
+- Steam Deck
 
-&nbsp;
+### Direct API
 
-- ### [Download the .yymps](https://github.com/offalynne/input/releases/)
-- ### Read the [documentation](https://offalynne.github.io/Input/)
-- ### Talk about Input on the [Discord server](https://discord.gg/s6NjaV8AnM )
-- ### You may also like [Firehammer](https://firehammergames.itch.io/firehammer-input) and [Input Dog](https://github.com/messhof/Input-Dog)
+Direct functions return per-frame momentary keyboard input. Best used on desktop platforms: no handling of mobile or console onscreen keyboard UI.
+```
+InputTextApplyDelta(string) // Returns string. Apply last frame's keyboard input
+InputTextGetCharsRemoved()  // Returns number, last frame's removed characters 
+InputTextGetDelta()         // Returns string, last frame's added text
+```
 
-&nbsp;
+### Request API
 
-<p align="center">Looking for Input 8 for GameMaker LTS 2022? <a href="https://github.com/offalynne/Input/tree/dev_8.1">Code</a>, <a href="https://offalynne.github.io/Input/#/8.1/">Documentation</a>, <a href="https://github.com/offalynne/Input/releases/tag/8.1.3">Release (.yymps)</a></p>
+Request functions create continuous context for a prompt, define a callback method for multi-modal text entry, and open an onscreen keyboard if necessary. Requests are ideal for cross-platform text entry including mobile and console.
+```
+InputTextRequestStart( // Returns boolean, success status. Show keyboard, start request
+  caption,             // String, onscreen prompt
+  initialText,         // String, initial text
+  maxLength,           // Number, maximum text length between 1 and 256
+  callback,            // Method, called upon status change
+  [keyboardType])      // Constant, mobile keyboard type
+
+InputTextRequestStop() // Returns undefined. Stop last request
+
+InputTextRequestGetString() // Returns string, text entered last request
+InputTextRequestGetStatus() // Returns enum, status of last request
+
+enum INPUT_TEXT_REQUEST_STATUS
+  .NONE       // No requests made
+  .WAITING    // Awaiting outcome
+  .STOPPED    // Request stopped 
+  .CANCELLED  // Player cancelled
+  .CONFIRMED  // Player confirmed
+```
+
+### **[Download (.yymps)](https://github.com/offalynne/InputPlugin-Text/releases)**
