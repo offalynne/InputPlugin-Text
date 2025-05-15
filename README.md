@@ -29,8 +29,7 @@ InputTextRequestStart( // Returns boolean, success status. Show keyboard, start 
   callback,            // Method, called upon status change
   [keyboardType])      // Constant, mobile keyboard type
 
-InputTextRequestStop() // Returns undefined. Stop last request
-
+InputTextRequestStop()      // Returns undefined. Stop last request
 InputTextRequestGetString() // Returns string, text entered last request
 InputTextRequestGetStatus() // Returns enum, status of last request
 

@@ -23,6 +23,7 @@ function __InputTextSystem()
         __requestStatus = INPUT_TEXT_STATUS.NONE;
         __maxLength     = __INPUT_TEXT_MAX_LENGTH;
         
+        __enabled           = false;
         __steamAsyncRequest = false;
         __useSteamKeyboard  = false;
         
@@ -51,7 +52,18 @@ function __InputTextSystem()
             
                 __InputTextHandleChanges();
                 __InputTextHandleStatus();
-            })
+            });
+            
+            InputPlugInRegisterCallback(INPUT_PLUG_IN_CALLBACK.GAME_RESTART, undefined, function()
+            {
+                if (!instance_exists(__InputTextAsyncController) && (__steamAsyncRequest || (__asyncId != undefined)))
+                {
+                    instance_create_depth(0, -__INPUT_CONTROLLER_OBJECT_DEPTH, __INPUT_CONTROLLER_OBJECT_DEPTH + 1, __InputTextAsyncController);
+                    
+                    __steamAsyncRequest = false;
+                    __asyncId = undefined;
+                }
+            });
         });
     }
 }

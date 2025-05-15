@@ -12,7 +12,9 @@ function __InputTextHandleController()
         {
             __InputTrace("Warning! __InputTextAsyncController has been destroyed. Please ensure that __InputTextAsyncController is never destroyed");
         }
-                
+        
+        instance_create_depth(0, -__INPUT_CONTROLLER_OBJECT_DEPTH, __INPUT_CONTROLLER_OBJECT_DEPTH + 1, __InputTextAsyncController);
+        
         __steamAsyncRequest = false;
         __asyncId = undefined;
     }

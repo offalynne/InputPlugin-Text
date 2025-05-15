@@ -69,7 +69,7 @@
 // Whether `INPUT_TOUCH` will be considered connected (and therefore available) on desktop
 // platforms. The library will never hotswap to `INPUT_TOUCH` on desktop and will prefer
 // `INPUT_KBM` so to use `INPUT_TOUCH` you will need to.
-#macro INPUT_ALLOW_TOUCH_ON_DESKTOP  false
+#macro INPUT_ALLOW_TOUCH_ON_DESKTOP  true //false
 
 // The maximum number of touchpoints to track when using the INPUT_TOUCH device.
 #macro INPUT_MAX_TOUCHPOINTS  4
