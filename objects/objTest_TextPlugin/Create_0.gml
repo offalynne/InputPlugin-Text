@@ -1,3 +1,5 @@
+deltaApplyTestString = "123";
+
 debugStatus = [
     "None",
     "Waiting",

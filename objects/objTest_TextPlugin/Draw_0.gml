@@ -2,6 +2,8 @@ draw_set_color(c_gray);
 InputVirtualDebugDraw();
 draw_set_color(c_white);
 
+deltaApplyTestString = InputTextApplyDelta(deltaApplyTestString, 32);
+draw_text(10, room_height - 30, ">" + deltaApplyTestString + "<");
 
 draw_text(10,  10, "keyboard_string  >" + keyboard_string  + "<");
 draw_text(10,  30, "Length           "  + string(string_length(keyboard_string)));
