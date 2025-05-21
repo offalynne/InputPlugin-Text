@@ -385,6 +385,7 @@
     {"id":{"name":"InputVirtualDestroyAll","path":"scripts/InputVirtualDestroyAll/InputVirtualDestroyAll.yy",},},
     {"id":{"name":"InputX","path":"scripts/InputX/InputX.yy",},},
     {"id":{"name":"InputY","path":"scripts/InputY/InputY.yy",},},
+    {"id":{"name":"StringFilterFontGlyphs","path":"scripts/StringFilterFontGlyphs/StringFilterFontGlyphs.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
