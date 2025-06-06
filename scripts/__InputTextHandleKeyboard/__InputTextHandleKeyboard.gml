@@ -9,10 +9,7 @@ function __InputTextHandleKeyboard()
     static _ignore                = false;
     static _pressedTime           = infinity;
     static _timePrevious          = InputPlugInGetTime();
-    
-    __keyboardStringPrevious = __keyboardString;
-    __keyboardString = keyboard_string;
-            
+                
     if (INPUT_ON_WEB || INPUT_ON_CONSOLE)
     {
         return;
@@ -36,8 +33,8 @@ function __InputTextHandleKeyboard()
                 _tail = string_copy(__keyboardString, string_length(__keyboardString), 1);
             }
                 
-            if ((keyboard_check_pressed(0x0A) || (_tail == chr(0x0A)))  // Line feed
-            ||  (keyboard_check_pressed(0x0D) || (_tail == chr(0x0D)))) // Carriage Return
+            if (keyboard_check_pressed(0x0A) || (_tail == chr(0x0A))  // Line feed
+            ||  keyboard_check_pressed(0x0D) || (_tail == chr(0x0D))) // Carriage Return
             {
                 __newStatus = INPUT_TEXT_STATUS.CONFIRMED;
                 keyboard_virtual_hide();

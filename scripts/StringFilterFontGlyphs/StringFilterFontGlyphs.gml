@@ -1,6 +1,6 @@
 function StringFilterFontGlyphs(_string, _font)
 {
-    static _filterStruct = {__fontDict: {}};
+    static _filterStruct = { __fontDict: {} };
     with(_filterStruct)
     {
         __glyphDict = __fontDict[$ _font];
