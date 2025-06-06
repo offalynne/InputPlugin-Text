@@ -13,19 +13,19 @@ Cross platform player text entry for [Input for GameMaker 2024.8](https://github
 
 Direct functions return per-frame momentary keyboard input. Best used on desktop platforms: no handling of mobile or console onscreen keyboard UI.
 ```
-InputTextApplyDelta(string) // Returns string. Apply last frame's keyboard input
+InputTextApplyDelta(string) // Returns string. Transform string using last frame's keyboard input
 InputTextGetCharsRemoved()  // Returns number, last frame's removed characters 
 InputTextGetDelta()         // Returns string, last frame's added text
 ```
 
 ### Request Functions
 
-Request functions create continuous context for a prompt, define a callback method for multi-modal text entry, and open an onscreen keyboard if necessary. Requests are ideal for cross-platform text entry including mobile and console.
+Request functions use continuous context for a prompt, define a callback method for multi-modal text entry, and open an onscreen keyboard if necessary. Requests are ideal for cross-platform text entry including mobile and console.
 ```
 InputTextRequestStart( // Returns boolean, success status. Show keyboard, start request
   caption,             // String, onscreen prompt
   initialText,         // String, initial text
-  maxLength,           // Number, maximum text length between 1 and 256
+  maxLength,           // Number, maximum character count between 1 and 256
   callback,            // Method, called upon status change
   [keyboardType])      // Constant, mobile keyboard type
 
