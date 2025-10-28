@@ -3,7 +3,9 @@
 function __InputTextHandleChanges()
 {
     static _textChanges = [];
-            
+    
+    var _textInitial = __textSet;
+    
     if (__textAsync != undefined)
     {
         __textRequest = __textAsync;
@@ -41,5 +43,11 @@ function __InputTextHandleChanges()
             
         array_resize(_textChanges, 0);            
         __textRequest = string_copy(__textRequest, 1, __maxLength);
+    }
+    
+    if (INPUT_ON_SWITCH)
+    {
+        var _masked = switch_mask_profanity(__textRequest);
+        __textRequest = is_string(_masked)? _masked : (_textInitial ?? "");
     }
 }
