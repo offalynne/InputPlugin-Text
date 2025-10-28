@@ -158,6 +158,7 @@
     {"id":{"name":"__InputSystem","path":"scripts/__InputSystem/__InputSystem.yy",},},
     {"id":{"name":"__InputSystemCallbackArray","path":"scripts/__InputSystemCallbackArray/__InputSystemCallbackArray.yy",},},
     {"id":{"name":"__InputSystemPlayerArray","path":"scripts/__InputSystemPlayerArray/__InputSystemPlayerArray.yy",},},
+    {"id":{"name":"__InputTextAsyncConsole","path":"scripts/__InputTextAsyncConsole/__InputTextAsyncConsole.yy",},},
     {"id":{"name":"__InputTextAsyncDialog","path":"scripts/__InputTextAsyncDialog/__InputTextAsyncDialog.yy",},},
     {"id":{"name":"__InputTextAsyncSteam","path":"scripts/__InputTextAsyncSteam/__InputTextAsyncSteam.yy",},},
     {"id":{"name":"__InputTextConstants","path":"scripts/__InputTextConstants/__InputTextConstants.yy",},},

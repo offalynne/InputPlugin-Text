@@ -26,6 +26,9 @@ function __InputTextSystem()
         __enabled           = false;
         __steamAsyncRequest = false;
         __useSteamKeyboard  = false;
+        __filterProfanity   = false;
+        
+        __asyncProfanityFilterInput = "";
         
         if (InputGetSteamInfo(INPUT_STEAM_INFO.STEAMWORKS)
         &&  InputGetSteamInfo(INPUT_STEAM_INFO.STEAM_DECK))
