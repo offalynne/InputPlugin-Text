@@ -18,9 +18,9 @@ repeat(array_length(buttons))
 {
     with(buttons[_i])
     {
-        if (button.Pressed()) 
+        if (button.Pressed() || gamepad_button_check_pressed(InputPlayerGetDevice(), gp_face1 + _i))
         {
-            OnClick();
+            Press();
         }
     
         draw_text(
@@ -32,7 +32,8 @@ repeat(array_length(buttons))
     ++_i;
 }
 
-if (keyboard_check_pressed(vk_escape) || background.Pressed())
+
+if (keyboard_check_pressed(vk_escape) || background.Pressed() || gamepad_button_check_pressed(InputPlayerGetDevice(), gp_start))
 {
     InputTextRequestStop();
 }
