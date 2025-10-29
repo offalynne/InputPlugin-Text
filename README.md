@@ -27,7 +27,8 @@ InputTextRequestStart( // Returns boolean, success status. Show keyboard, start 
   initialText,         // String, initial text
   maxLength,           // Number, maximum character count between 1 and 256
   callback,            // Method, called upon status change
-  [keyboardType])      // Constant, mobile keyboard type
+  [keyboardType]       // Constant, Keyboard type, default kbv_type_default
+  [profanityFilter])   // Boolean, whether platform filter is used, default true
 
 InputTextRequestStop()      // Returns undefined. Stop last request
 InputTextRequestGetString() // Returns string, text entered last request

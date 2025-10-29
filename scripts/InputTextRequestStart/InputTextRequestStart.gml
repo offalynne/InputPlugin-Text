@@ -6,9 +6,10 @@
 // @param {String} initialText
 // @param {Real} maxLength
 // @param {Function, undefined} callback
-// @param {Constant.VirtualKeyboardType} [keyboardType]
+// @param {Constant.VirtualKeyboardType} [keyboardType=kbv_type_default]
+// @param {Boolean} [profanityFilter=true]
 
-function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _keyboardType = kbv_type_default)
+function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _keyboardType = kbv_type_default, _profanityFilter = true)
 {
     static _system = __InputTextSystem();
     with(_system)
@@ -47,6 +48,7 @@ function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _k
             }
             else
             {
+                __useProfanityFilter = _profanityFilter;
                 __asyncId = get_string_async(_caption, _initialText);
             }
                 
