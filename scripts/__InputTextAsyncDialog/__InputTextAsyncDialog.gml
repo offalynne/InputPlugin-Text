@@ -3,7 +3,7 @@
 function __InputTextAsyncDialog()
 {
     static _system = __InputTextSystem();
-    var _asyncLoad = _asyncLoad;
+    var _asyncLoad = async_load;
 
     with(_system)
     {

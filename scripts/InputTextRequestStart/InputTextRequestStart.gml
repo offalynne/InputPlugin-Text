@@ -12,6 +12,9 @@
 function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _keyboardType = kbv_type_default, _profanityFilter = true)
 {
     static _system = __InputTextSystem();
+
+    InputVerbConsumeAll();
+
     with(_system)
     {
         __enabled = true;
