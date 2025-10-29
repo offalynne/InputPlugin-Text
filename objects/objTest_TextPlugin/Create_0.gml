@@ -46,7 +46,7 @@ var _button = function(_caption, _text, _maxLength, _button) constructor
         return _string;
     }
         
-    static OnClick = function()
+    static Press = function()
     {   
         if (InputTextRequestStart(caption, GetValue(), maxLength, function()
         {

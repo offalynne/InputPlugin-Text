@@ -8,8 +8,11 @@ function __InputTextHandleStatus()
     {
         if (INPUT_ON_MOBILE) keyboard_virtual_hide();
     }
-                
-    if (__newStatus != INPUT_TEXT_STATUS.WAITING)
+    
+    __requestStatus = __newStatus;
+    __newStatus = undefined;
+    
+    if (__requestStatus != INPUT_TEXT_STATUS.WAITING)
     {
         if (is_method(__callback))
         {
@@ -18,7 +21,4 @@ function __InputTextHandleStatus()
                     
         __callback = undefined;
     }
-                
-    __requestStatus = __newStatus;                
-    __newStatus = undefined;
 }
