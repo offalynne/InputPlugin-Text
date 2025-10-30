@@ -15,9 +15,7 @@ function __InputTextAsyncDialog()
                 __newStatus = INPUT_TEXT_STATUS.CANCELLED;
             }
             else if (__requestStatus == INPUT_TEXT_STATUS.WAITING)
-            {
-                _result = string_copy(_result, 1, __maxLength);
-                
+            {   
                 if (__useProfanityFilter && (string_length(_result) > 0) && (__asyncProfanityFilterInput == ""))
                 {
                     if (INPUT_ON_SWITCH)
@@ -50,8 +48,8 @@ function __InputTextAsyncDialog()
                 
                 if (__asyncProfanityFilterInput == "")
                 {
-                    __textAsync = _result;
                     __newStatus = INPUT_TEXT_STATUS.CONFIRMED;
+                    __textAsync = string_copy(_result, 1, __maxLength);
                 }
             }
             

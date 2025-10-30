@@ -16,7 +16,9 @@ function __InputTextAsyncSteam()
             else if (__requestStatus == INPUT_TEXT_STATUS.WAITING)
             {
                 __newStatus = INPUT_TEXT_STATUS.CONFIRMED;
-                __textAsync = string_copy(steam_get_entered_gamepad_text_input(), 1, __maxLength);
+                
+                var _steamTextInput = steam_get_entered_gamepad_text_input();
+                __textAsync = string_copy(is_string(_steamTextInput)? _steamTextInput : "", 1, __maxLength);
             }
             
             __steamAsyncRequest = false;

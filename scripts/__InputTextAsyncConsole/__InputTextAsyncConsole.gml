@@ -26,8 +26,8 @@ function __InputTextAsyncConsole()
 
             if (_asyncStringMatch)
             {
-                __textAsync = _filterOutput;
                 __newStatus = INPUT_TEXT_STATUS.CONFIRMED;
+                __textAsync = string_copy(_filterOutput, 1, __maxLength);
                 __asyncProfanityFound = (__asyncProfanityFilterInput != _filterOutput);
                 __asyncProfanityFilterInput = "";
             }
