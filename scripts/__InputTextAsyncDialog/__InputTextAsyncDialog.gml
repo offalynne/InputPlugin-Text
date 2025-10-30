@@ -23,7 +23,11 @@ function __InputTextAsyncDialog()
                     if (INPUT_ON_SWITCH)
                     {
                         var _maskedString = switch_mask_profanity(_result);
-                        _result = (is_string(_maskedString))? _maskedString : _result;
+                        if (is_string(_maskedString))
+                        {
+                            __asyncProfanityFound = (_result != _maskedString);
+                            _result = _maskedString;
+                        }
                     }
                     else if (INPUT_ON_XBOX)
                     {
@@ -34,7 +38,7 @@ function __InputTextAsyncDialog()
                             __asyncProfanityFilterInput = _result;
                         }
                     }
-                    else if (INPUT_ON_PS4 || INPUT_ON_PS5)
+                    else if (INPUT_ON_PS4)
                     {
                         var _maskResult = psn_mask_profanity(_result);
                         if (is_numeric(_maskResult) && (_maskResult == 0))

@@ -23,10 +23,11 @@ function __InputTextSystem()
         __requestStatus = INPUT_TEXT_STATUS.NONE;
         __maxLength     = __INPUT_TEXT_MAX_LENGTH;
         
-        __enabled            = false;
-        __steamAsyncRequest  = false;
-        __useSteamKeyboard   = false;
-        __useProfanityFilter = false;
+        __enabled             = false;
+        __steamAsyncRequest   = false;
+        __useSteamKeyboard    = false;
+        __useProfanityFilter  = false;
+        __asyncProfanityFound = false;
         
         __asyncProfanityFilterInput = "";
         

@@ -51,6 +51,7 @@ function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _k
             }
             else
             {
+                __asyncProfanityFound = false;
                 __useProfanityFilter = _profanityFilter;
                 __asyncId = get_string_async(_caption, _initialText);
             }

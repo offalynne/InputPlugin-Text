@@ -9,21 +9,26 @@ function __InputTextAsyncConsole()
     {
         if ((_asyncLoad != -1) && (__asyncProfanityFilterInput != ""))
         {
-            if ((INPUT_ON_PS4 || INPUT_ON_PS5)
-            &&  (_asyncLoad[? "event_type"] == "psn_mask_profanity")
-            &&  (_asyncLoad[? "origstring"] == __asyncProfanityFilterInput))
+            var _asyncStringMatch = false;
+            var _filterOutput = __asyncProfanityFilterInput;
+
+            if (_asyncLoad[? "event_type"] == "psn_mask_profanity")
             {
-                __textAsync = _asyncLoad[? "sanitized_string"] ?? __asyncProfanityFilterInput;
-                __newStatus = INPUT_TEXT_STATUS.CONFIRMED;
-                __asyncProfanityFilterInput = "";
+                _asyncStringMatch = (__asyncProfanityFilterInput == _asyncLoad[? "origstring"]);
+                _filterOutput = _asyncLoad[? "sanitized_string"] ?? "";
             }
 
-            if (INPUT_ON_XBOX
-            && (_asyncLoad[? "event_type"] == "verify_string_result")
-            && (_asyncLoad[? "original_string"] == __asyncProfanityFilterInput))
+            if (_asyncLoad[? "event_type"] == "verify_string_result")
             {
-                __textAsync = (_asyncLoad[? "result_code"] == 1)? "" : __asyncProfanityFilterInput;
+                _asyncStringMatch = (__asyncProfanityFilterInput == _asyncLoad[? "original_string"]);
+                _filterOutput = (_asyncLoad[? "result_code"] == 1)? "" : __asyncProfanityFilterInput;
+            }
+
+            if (_asyncStringMatch)
+            {
+                __textAsync = _filterOutput;
                 __newStatus = INPUT_TEXT_STATUS.CONFIRMED;
+                __asyncProfanityFound = (__asyncProfanityFilterInput != _filterOutput);
                 __asyncProfanityFilterInput = "";
             }
         }
