@@ -47,15 +47,14 @@ var _button = function(_caption, _text, _maxLength, _button) constructor
     }
         
     static Press = function()
-    {   
-        if (InputTextRequestStart(caption, GetValue(), maxLength, function()
+    {
+        var _request = InputTextRequestStart(caption, GetValue(), maxLength, function()
         {
             selected = false;
             text = InputTextRequestGetString();
-        }))
-        {
-            selected = true;
-        }
+        });
+        
+        if (_request) selected = true;
     }
 }
 

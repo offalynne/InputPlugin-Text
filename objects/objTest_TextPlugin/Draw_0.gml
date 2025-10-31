@@ -18,7 +18,7 @@ repeat(array_length(buttons))
 {
     with(buttons[_i])
     {
-        if (button.Pressed() || gamepad_button_check_pressed(InputPlayerGetDevice(), gp_face1 + _i))
+        if (button.Pressed() || (InputPlayerUsingGamepad() && InputCheck(INPUT_VERB.ACCEPT + _i)))
         {
             Press();
         }
@@ -33,7 +33,7 @@ repeat(array_length(buttons))
 }
 
 
-if (keyboard_check_pressed(vk_escape) || background.Pressed() || gamepad_button_check_pressed(InputPlayerGetDevice(), gp_start))
+if (keyboard_check_pressed(vk_escape) || background.Pressed() || (InputPlayerUsingGamepad() && InputCheck(INPUT_VERB.PAUSE)))
 {
     InputTextRequestStop();
 }

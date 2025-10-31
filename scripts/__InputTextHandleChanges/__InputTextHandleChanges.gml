@@ -20,7 +20,7 @@ function __InputTextHandleChanges()
         if ((__newStatus == undefined) && (__requestStatus == INPUT_TEXT_STATUS.WAITING) && (array_length(_textChanges) == 0))
         {
             if (__removeCount > 0) array_push(_textChanges, __removeCount);
-            if (string_length(__textDelta)) array_push(_textChanges, __textDelta);
+            if (string_length(__textDelta) > 0) array_push(_textChanges, __textDelta);
         }
 
         var _i = 0;

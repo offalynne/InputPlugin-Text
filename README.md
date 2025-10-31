@@ -13,9 +13,9 @@ Cross platform player text entry for [Input for GameMaker 2024.8](https://github
 
 Direct functions return per-frame momentary keyboard input. Best used on desktop platforms: no handling of mobile or console onscreen keyboard UI.
 ```
-InputTextApplyDelta(string) // Returns string. Transform string using last frame's keyboard input
-InputTextGetCharsRemoved()  // Returns number, last frame's removed characters 
-InputTextGetDelta()         // Returns string, last frame's added text
+InputTextApplyDelta(string) // Returns string. Transform string with keyboard input
+InputTextGetCharsRemoved()  // Returns number, removed characters 
+InputTextGetDelta()         // Returns string, added text
 ```
 
 ### Request Functions
@@ -27,11 +27,13 @@ InputTextRequestStart( // Returns boolean, success status. Show keyboard, start 
   initialText,         // String, initial text
   maxLength,           // Number, maximum character count between 1 and 256
   callback,            // Method, called upon status change
-  [keyboardType])      // Constant, mobile keyboard type
+  [keyboardType]       // Constant, keyboard type. Default kbv_type_default
+  [profanityFilter])   // Boolean, whether to filter profanity. Default true on Switch only
 
-InputTextRequestStop()      // Returns undefined. Stop last request
-InputTextRequestGetString() // Returns string, text entered last request
-InputTextRequestGetStatus() // Returns enum, status of last request
+InputTextRequestStop()         // Returns undefined. Stop last request
+InputTextRequestGetString()    // Returns string, text entered last request
+InputTextRequestGetStatus()    // Returns enum, status of last request
+InputTextRequestGetProfanity() // Returns boolean, whether last request was filtered
 
 enum INPUT_TEXT_REQUEST_STATUS
   .NONE       // No requests made

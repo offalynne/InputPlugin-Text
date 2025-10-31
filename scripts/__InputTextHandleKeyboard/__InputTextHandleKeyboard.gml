@@ -24,7 +24,7 @@ function __InputTextHandleKeyboard()
         {
             if (!_osPaused && _osPausedPrevious)
             {
-                keyboard_virtual_show(__keyboardType, INPUT_TEXT_RETURN_KEY, INPUT_TEXT_CAPITALIZATION, INPUT_TEXT_PREDICTION);
+                keyboard_virtual_show(__keyboardType, __INPUT_TEXT_RETURN_KEY, __INPUT_TEXT_CAPITALIZATION, __INPUT_TEXT_PREDICTION);
             }
                 
             var _tail = "";
@@ -83,15 +83,15 @@ function __InputTextHandleKeyboard()
         else
         {
             var _heldTime = _currentTime - _pressedTime;
-            if (_heldTime < INPUT_TEXT_REPEAT_DELAY)
+            if (_heldTime < __INPUT_TEXT_REPEAT_DELAY)
             {
                 __repeatCount = 0;
             }
             else
             {
-                var _repeatStart = _pressedTime + INPUT_TEXT_REPEAT_DELAY;
-                var _repeatCountPrevious = floor((_timePrevious  - _repeatStart)/INPUT_TEXT_REPEAT_INTERVAL);
-                var _repeatCountCurrent  = floor((_currentTime   - _repeatStart)/INPUT_TEXT_REPEAT_INTERVAL);
+                var _repeatStart = _pressedTime + __INPUT_TEXT_REPEAT_DELAY;
+                var _repeatCountPrevious = floor((_timePrevious  - _repeatStart)/__INPUT_TEXT_REPEAT_INTERVAL);
+                var _repeatCountCurrent  = floor((_currentTime   - _repeatStart)/__INPUT_TEXT_REPEAT_INTERVAL);
                 __repeatCount = max(0, _repeatCountCurrent - _repeatCountPrevious);
             }
         }
