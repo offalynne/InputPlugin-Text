@@ -31,10 +31,10 @@ function __InputTextFindKeyboardDelta()
         if (_deleteCount != 0)
         {
             __removeCount = _deleteCount;
-        }				
-		else if (INPUT_ON_MACOS || INPUT_ON_LINUX)
-		{
-			__removeCount = __repeatCount;
-		}
+        }
+        else if (INPUT_ON_MACOS || INPUT_ON_LINUX)
+        {
+            __removeCount = __repeatCount;
+        }
     }
 }

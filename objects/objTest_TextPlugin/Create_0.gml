@@ -36,8 +36,8 @@ var _button = function(_caption, _text, _maxLength, _button) constructor
         var _string = GetValue();
         if (!INPUT_ON_CONSOLE && selected && InputGameHasFocus())
         {
-            if (((current_time div 250) mod 2 == 0)
-            || (string_length(InputTextDelta()) + InputTextCharsRemoved() > 0))
+            //Add a blinking caret
+            if (((current_time div 250) mod 2 == 0) || (string_length(InputTextDelta()) + InputTextCharsRemoved() > 0))
             {
                 _string += "|";   
             }
@@ -47,15 +47,14 @@ var _button = function(_caption, _text, _maxLength, _button) constructor
     }
         
     static Press = function()
-    {   
-        if (InputTextRequestStart(caption, GetValue(), maxLength, function()
+    {
+        var _request = InputTextRequestStart(caption, GetValue(), maxLength, function()
         {
             selected = false;
             text = InputTextRequestGetString();
-        }))
-        {
-            selected = true;
-        }
+        }, undefined, true);
+        
+        if (_request) selected = true;
     }
 }
 

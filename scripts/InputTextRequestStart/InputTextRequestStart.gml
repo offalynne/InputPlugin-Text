@@ -6,11 +6,21 @@
 // @param {String} initialText
 // @param {Real} maxLength
 // @param {Function, undefined} callback
-// @param {Constant.VirtualKeyboardType} [keyboardType]
+// @param {Constant.VirtualKeyboardType} [keyboardType=kbv_type_default]
+// @param {Boolean} [profanityFilter]
 
-function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _keyboardType = kbv_type_default)
+function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _keyboardType = kbv_type_default, _profanityFilter = INPUT_ON_SWITCH)
 {
     static _system = __InputTextSystem();
+
+    var _i = 0;
+    repeat(INPUT_MAX_PLAYERS)
+    {
+        InputVerbConsumeAll(_i);
+
+        ++_i;
+    }
+
     with(_system)
     {
         __enabled = true;
@@ -47,6 +57,7 @@ function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _k
             }
             else
             {
+                __useProfanityFilter = _profanityFilter;
                 __asyncId = get_string_async(_caption, _initialText);
             }
                 
@@ -69,7 +80,7 @@ function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _k
                 
             if (INPUT_ON_MOBILE)
             {
-                keyboard_virtual_show(_keyboardType, INPUT_TEXT_RETURN_KEY, INPUT_TEXT_CAPITALIZATION, INPUT_TEXT_PREDICTION);
+                keyboard_virtual_show(_keyboardType, __INPUT_TEXT_RETURN_KEY, __INPUT_TEXT_CAPITALIZATION, __INPUT_TEXT_PREDICTION);
             }
         }
             
@@ -86,9 +97,9 @@ function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _k
         }
         else
         {
-            __callback     = _callback;
+            __callback = _callback;
             __keyboardType = _keyboardType;
-            __textSet      = string_copy(_initialText, 1, _maxLength);
+            __textSet = string_copy(_initialText, 1, _maxLength);
         }
     }
 

@@ -27,11 +27,13 @@ InputTextRequestStart( // Returns boolean, success status. Show keyboard, start 
   initialText,         // String, initial text
   maxLength,           // Number, maximum character count between 1 and 256
   callback,            // Method, called upon status change
-  [keyboardType])      // Constant, mobile keyboard type
+  [keyboardType]       // Constant, keyboard type. Default kbv_type_default
+  [filterProfanity])   // Boolean, whether to filter profanity. Default true on Switch only
 
-InputTextRequestStop()      // Returns undefined. Stop last request
-InputTextRequestGetString() // Returns string, text entered last request
-InputTextRequestGetStatus() // Returns enum, status of last request
+InputTextRequestStop()         // Returns undefined. Stop last request
+InputTextRequestGetString()    // Returns string, text entered last request
+InputTextRequestGetStatus()    // Returns enum, status of last request
+InputTextRequestGetProfanity() // Returns boolean, whether last request was filtered
 
 enum INPUT_TEXT_REQUEST_STATUS
   .NONE       // No requests made
