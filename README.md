@@ -13,9 +13,9 @@ Cross platform player text entry for [Input for GameMaker 2024.8](https://github
 
 Direct functions return per-frame momentary keyboard input. Best used on desktop platforms: no handling of mobile or console onscreen keyboard UI.
 ```
-InputTextApplyDelta(string) // Returns string. Transform string using last frame's keyboard input
-InputTextGetCharsRemoved()  // Returns number, last frame's removed characters 
-InputTextGetDelta()         // Returns string, last frame's added text
+InputTextApplyDelta(string) // Returns string. Transform string with keyboard input
+InputTextGetCharsRemoved()  // Returns number, removed characters 
+InputTextGetDelta()         // Returns string, added text
 ```
 
 ### Request Functions
