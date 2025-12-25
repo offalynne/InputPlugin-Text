@@ -12,15 +12,6 @@
 function InputTextRequestStart(_caption, _initialText, _maxLength, _callback, _keyboardType = kbv_type_default, _profanityFilter = INPUT_ON_SWITCH)
 {
     static _system = __InputTextSystem();
-
-    var _i = 0;
-    repeat(INPUT_MAX_PLAYERS)
-    {
-        InputVerbConsumeAll(_i);
-
-        ++_i;
-    }
-
     with(_system)
     {
         __enabled = true;
